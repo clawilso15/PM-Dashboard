@@ -112,16 +112,29 @@
         background-color: #d6eeee;
       }
     </style>
+    <script>
+      function show(shown, hidden) {
+        document.getElementById(shown).style.display = "block";
+        document.getElementById(hidden).style.display = "none";
+        return false;
+      }
+    </script>
   </head>
   <body>
     <nav>
       <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a class="active" href="#" onclick="return show('home','risks')"
+            >Home</a
+          >
+        </li>
+        <li><a href="#risks">Risks</a></li>
       </ul>
     </nav>
-    <div>
+    <div id="home">
+      <h2>Home Page</h2>
+    </div>
+    <div id="risks">
       <table>
         <tr>
           <th>Company</th>
