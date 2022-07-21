@@ -6,6 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Traffic light css</title>
     <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #04aa6d;
+      }
+
       .trafficLight {
         background-color: black;
         width: 50px;
@@ -74,13 +107,43 @@
           background-color: green;
         }
       }
+
+      tr:nth-child(even) {
+        background-color: #d6eeee;
+      }
     </style>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
+    </div>
     <!--- <div class="trafficLight">
       <span class="red"></span>
       <span class="yellow"></span>
-      <span class="green"></span> -->
-    </div>
+      <span class="green"></span> 
+    </div> -->
   </body>
 </html>
