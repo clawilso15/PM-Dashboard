@@ -1,22 +1,147 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Traffic light css</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-widith, initial-scale=1.0" />
+    <title>Project Dashboard</title>
+
     <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 14px;
+        line-height: 1.2;
+        font-family: "Lato", sans-serif;
+        font-weight: var(--fw-base);
+      }
+
+      :root {
+        --bg-root: rgb(66, 68, 87);
+
+        --bg-primary: rgb(32, 33, 42);
+        --bg-secondary: rgb(55, 57, 63);
+        --bg-tertiary: rgb(40, 41, 50);
+
+        --nav-active: rgb(17, 201, 0);
+        --nav-inactive: rgb(55, 57, 63);
+
+        --hi-success: rgb(17, 201, 0);
+        --hi-warning: rgb(255, 147, 5);
+        --hi-danger: rgb(255, 0, 126);
+        --hi-primary: rgb(138, 149, 255);
+        --hi-secondary: rgb(90, 104, 242);
+
+        --fg-primary: rgb(233, 233, 233);
+        --fg-secondary: rgb(131, 133, 137);
+
+        --fw-sm: 500;
+        --fw-lg: 700;
+
+        --sp-base: 16px;
+
+        --sp-sm-1: calc(7 / 8 * var(--sp-base));
+        --sp-sm-2: calc(6 / 8 * var(--sp-base));
+        --sp-sm-3: calc(5 / 8 * var(--sp-base));
+        --sp-sm-4: calc(4 / 8 * var(--sp-base));
+        --sp-sm-5: calc(3 / 8 * var(--sp-base));
+        --sp-sm-6: calc(2 / 8 * var(--sp-base));
+        --sp-sm-7: calc(1 / 8 * var(--sp-base));
+
+        --sp-lg-7: calc((1 + 7 / 8) * var(--sp-base));
+        --sp-lg-6: calc((1 + 6 / 8) * var(--sp-base));
+        --sp-lg-5: calc((1 + 5 / 8) * var(--sp-base));
+        --sp-lg-4: calc((1 + 4 / 8) * var(--sp-base));
+        --sp-lg-3: calc((1 + 3 / 8) * var(--sp-base));
+        --sp-lg-2: calc((1 + 2 / 8) * var(--sp-base));
+        --sp-lg-1: calc((1 + 1 / 8) * var(--sp-base));
+
+        --fs-sm-1: 0.8rem;
+        --fs-base: 1rem;
+        --fs-lg-1: 1.25rem;
+        --fs-lg-2: 1.563rem;
+        --fs-lg-3: 1.953rem;
+        --fs-lg-4: 2.441rem;
+
+        --bd-radius: 24px;
+        --bd: 1px solid var(--bg-secondary);
+      }
+
+      body {
+        background: var(--bg-root);
+
+        display: grid;
+        place-content: center;
+
+        min-height: 100vh;
+        min-width: 100vw;
+
+        overflow-x: hidden;
+        padding: var(--sp-base);
+
+        color: var(--fg-primary);
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: 1fr;
+        gap: var(--sp-lg-4);
+
+        width: 1280px;
+        max-width: 1280px;
+        aspect-ratio: 1280/758;
+        border-radius: calc(5 / 3 * var(--bd-radius));
+        padding: calc(4 * var(--sp-base));
+
+        background-color: var(--bg-primary);
+        box-shadow: 67px 62px 120px 0px rgb(33, 37, 52, 0.75);
+      }
+
+      article {
+        display: grid;
+        grid-template-rows: max-content 1fr;
+        gap: var(--sp-lg-5);
+      }
+
+      h1 {
+        color: var(--hi-primary);
+        font-weight: var(--fw-sm);
+        margin: 0;
+        font-size: var(--fs-lg-3);
+      }
+
+      /* utilities */
+      .text--muted {
+        color: var(--fg-secondary);
+      }
+
+      .text--light {
+        color: var(--fg-secondary);
+        font-weight: var(--fs-sm);
+      }
+
+      nav {
+        min-width: 0px;
+      }
+
       ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333;
+        width: 60px;
+        background-color: var(--bg-primary);
       }
 
       li {
         float: left;
-        border-right: 1px solid #bbb;
+        border-right: 1px solid var(--fg-primary);
       }
 
       li:last-child {
@@ -25,91 +150,242 @@
 
       li a {
         display: block;
-        color: white;
+        color: var(--fg-primary);
         text-align: center;
-        padding: 14px 16px;
+        padding: 8px;
         text-decoration: none;
       }
 
+      li a:hover {
+        background-color: var(--fg-secondary);
+        color: var(--fg-primary);
+      }
+
       li a:hover:not(.active) {
-        background-color: #111;
+        background-color: var(--nav-inactive);
       }
 
       .active {
-        background-color: #04aa6d;
+        background-color: var(--nav-active);
       }
 
-      .trafficLight {
-        background-color: black;
-        width: 50px;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 5px;
-        border-radius: 10px;
-      }
-      .trafficLight span {
-        width: 45px;
-        height: 45px;
-        border-radius: 100%;
-        background-color: gray;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        /* animation: red 5s linear infinite */
-        /* animation-fill-mode: forwards; */
-      }
-      .red {
-        animation-name: red;
-      }
-      .yellow {
-        animation-name: yellow;
-      }
-      .green {
-        animation-name: green;
+      .grid {
+        display: grid;
+        gap: var(--sp-lg-5);
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-areas:
+          "description description status status"
+          "description description status status"
+          "risks risks finance finance"
+          "risks risks finance finance"
+          "schedule schedule schedule schedule"
+          "schedule schedule schedule schedule";
       }
 
-      @keyframes red {
-        0%,
-        33% {
-          background-color: red;
-        }
-        34%,
-        100% {
-          background-color: gray;
-        }
+      .description {
+        grid-area: description;
       }
 
-      @keyframes yellow {
-        0%,
-        33% {
-          background-color: gray;
-        }
-        34%,
-        66% {
-          background-color: yellow;
-        }
-        67%,
-        100% {
-          background-color: gray;
-        }
+      .status {
+        grid-area: status;
       }
 
-      @keyframes green {
-        0%,
-        66% {
-          background-color: gray;
-        }
-        67%,
-        100% {
-          background-color: green;
-        }
+      .risks {
+        grid-area: risks;
       }
 
-      tr:nth-child(even) {
-        background-color: #d6eeee;
+      .finance {
+        grid-area: finance;
+      }
+
+      .schedule {
+        grid-area: schedule;
+      }
+
+      .my-team {
+        grid-area: my-team;
+      }
+
+      .messages {
+        grid-area: messages;
+      }
+
+      .project-1 {
+        grid-area: project-1;
+      }
+
+      .project-2 {
+        grid-area: project-2;
+      }
+
+      .project-3 {
+        grid-area: project-3;
+      }
+
+      .my-work {
+        grid-area: my-work;
+      }
+
+      .my-day {
+        grid-area: my-day;
+      }
+
+      section {
+        --icon-size: 58px;
+        --padding: var(--sp-lg-1);
+
+        background-color: var(--bg-tertiary);
+        border: var(--bd);
+        border-radius: var(--bd-radius);
+
+        display: grid;
+        grid-template-rows: max-content 1fr;
+      }
+
+      section > header {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: var(--sp-sm-1);
+
+        grid-template-areas:
+          "icon header"
+          "icon sub-header";
+
+        padding: var(--padding);
+      }
+
+      section > header > .icon {
+        grid-area: icon;
+        display: grid;
+        place-content: center;
+        border-radius: calc((2 / 3) * var(--bd-radius));
+
+        width: var(--icon-size);
+        height: var(--icon-size);
+
+        background: var(--bg-primary);
+        color: var(--hi-primary);
+      }
+
+      section > header > h2 {
+        grid-area: header;
+
+        font-size: var(--fs-lg-1);
+        align-self: end;
+      }
+
+      section > header > p {
+        grid-area: sub-header;
+
+        font-weight: var(--fw-sm);
+      }
+
+      section > *:nth-child(2) {
+        margin: 0 var(--padding) var(--padding);
+        place-self: stretch;
+      }
+
+      section.decorated {
+        /* Need to add a background image
+            background-image: ; */
+        background-position: bottom right;
+        background-repeat: no-repeat;
+      }
+
+      dl {
+        display: grid;
+        grid-auto-flow: column dense;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: var(--sp-sm-6) 0;
+      }
+
+      dl dt {
+        font-weight: var(--fw-sm);
+        font-size: var(--fs-base);
+        color: var(--fg-secondary);
+        line-height: var(--sp-lg-5);
+      }
+
+      dl dd {
+        font-size: var(--fs-lg-1);
+        line-height: var(--sp-lg-2);
+      }
+
+      dl > .size-1 {
+        grid-column: span 1;
+      }
+
+      dl > .size-2 {
+        grid-column: span 2;
+      }
+
+      dl > .size-3 {
+        grid-column: span 3;
+      }
+
+      dd.hi::before {
+        --hi-size: 12px;
+
+        content: "";
+        display: inline-block;
+
+        width: var(--hi-size);
+        height: var(--hi-size);
+        margin-right: var(--sp-sm-4);
+        border-radius: 50%;
+
+        background-color: var(--highlight);
+      }
+
+      .hi-danger {
+        --highlight: var(--hi-danger);
+      }
+
+      .hi-warning {
+        --highlight: var(--hi-warning);
+      }
+
+      .hi-success {
+        --highlight: var(--hi-success);
+      }
+
+      .hi-muted {
+        --highlight: var(--fg-secondary);
+      }
+
+      .avatar {
+        width: var(--avatar-size);
+        height: var(--avatar-size);
+        background-color: var(--bg-primary);
+        border-radius: 50%;
+
+        /* Need to add URL*/
+        background-image: var(--avatar-url);
+        background-position: center;
+        background-size: cover;
+      }
+
+      .project {
+        display: grid;
+        justify-items: start;
+        grid-auto-rows: max-content;
+        gap: var(--sp-sm-4);
+      }
+
+      .project__members {
+        --avatar-size: 32px;
+
+        display: grid;
+        grid-auto-flow: column;
+        gap: var(--sp-sm-4);
+      }
+
+      .project__members > * {
+        background-color: var(--bg-primary);
       }
     </style>
     <script>
@@ -118,45 +394,76 @@
         document.getElementById(hidden).style.display = "none";
         return false;
       }
+
+      checkHash();
+
+      function checkHash() {
+        //Check if the hash is empty
+        if (window.location.hash.substring(1) == "") {
+          history.replaceState(undefined, undefined, "#home");
+        }
+      }
     </script>
   </head>
+
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a class="active" href="#" onclick="return show('home','risks')"
-            >Home</a
-          >
-        </li>
-        <li><a href="#risks">Risks</a></li>
-      </ul>
-    </nav>
-    <div id="home">
-      <h2>Home Page</h2>
-    </div>
-    <div id="risks">
-      <table>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr>
-      </table>
-    </div>
-    <!--- <div class="trafficLight">
-      <span class="red"></span>
-      <span class="yellow"></span>
-      <span class="green"></span> 
-    </div> -->
+    <main>
+      <nav>
+        <ul>
+          <li>
+            <a class="active" href="#" onclick="return show('home','risks')"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="#risks" href="#" onclick="return show('risks','home')"
+              >Risks</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <article id="home">
+        <header>
+          <h1>Project 1</h1>
+        </header>
+        <div class="grid">
+          <section class="description">
+            <header>
+              <h2>Description</h2>
+            </header>
+          </section>
+          <section class="status">
+            <header>
+              <h2>Status</h2>
+            </header>
+          </section>
+          <section class="risks">
+            <header>
+              <h2>Risks Issues</h2>
+            </header>
+            <!--<table>
+                        <tr>
+                            <th>Top Issues</th>
+                            <th>Top Risks</th>
+                        </tr>
+                        <tr>
+                            <td>Issues #1</td>
+                            <td>Risk #1</td>
+                        </tr>
+                    </table> -->
+          </section>
+          <section class="finance">
+            <header>
+              <h2>Finance</h2>
+            </header>
+          </section>
+          <section class="schedule">
+            <header>
+              <h2>Schedule</h2>
+            </header>
+          </section>
+        </div>
+      </article>
+    </main>
   </body>
 </html>
