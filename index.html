@@ -387,6 +387,40 @@
       .project__members > * {
         background-color: var(--bg-primary);
       }
+
+      .status.red:before {
+        background-color: #c9404d;
+        border-color: #c42c3b;
+        box-shadow: 0px 0px 4px 1px;
+        content: " ";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #000;
+        border-radius: 7px;
+      }
+      .status.yellow:before {
+        background-color: #ffc182;
+        border-color: #ffb161;
+        box-shadow: 0px 0px 4px 1px;
+        content: " ";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #000;
+        border-radius: 7px;
+      }
+      .status.green:before {
+        background-color: #94e185;
+        border-color: #78d965;
+        box-shadow: 0px 0px 4px 1px;
+        content: " ";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #000;
+        border-radius: 7px;
+      }
     </style>
     <script>
       function show(shown, hidden) {
@@ -436,11 +470,19 @@
             <header>
               <h2>Status</h2>
             </header>
+            <div>
+              <h4>Accomplishments</h4>
+              <h4>90 Day Look Ahead</h4>
+            </div>
           </section>
           <section class="risks">
             <header>
               <h2>Risks Issues</h2>
             </header>
+            <div>
+              <h4>Issues</h4>
+              <h4>Risks</h4>
+            </div>
             <!--<table>
                         <tr>
                             <th>Top Issues</th>
@@ -456,6 +498,11 @@
             <header>
               <h2>Finance</h2>
             </header>
+            <div>
+              <h4 class="status red">RDT&E</h4>
+              <h4 class="status yellow">Procurement</h4>
+              <h4 class="status green">Sustainment</h4>
+            </div>
           </section>
           <section class="schedule">
             <header>
