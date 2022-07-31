@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-widith, initial-scale=1.0" />
-    <title>Project Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
 
     <style>
       * {
@@ -29,7 +28,7 @@
         --bg-tertiary: rgb(40, 41, 50);
 
         --nav-active: rgb(17, 201, 0);
-        --nav-inactive: rgb(55, 57, 63);
+        --nav-font: rgb(55, 57, 63);
 
         --hi-success: rgb(17, 201, 0);
         --hi-warning: rgb(255, 147, 5);
@@ -69,6 +68,7 @@
         --fs-lg-4: 2.441rem;
 
         --bd-radius: 24px;
+        --nav-radius: 12px;
         --bd: 1px solid var(--bg-secondary);
       }
 
@@ -103,12 +103,6 @@
         box-shadow: 67px 62px 120px 0px rgb(33, 37, 52, 0.75);
       }
 
-      article {
-        display: grid;
-        grid-template-rows: max-content 1fr;
-        gap: var(--sp-lg-5);
-      }
-
       h1 {
         color: var(--hi-primary);
         font-weight: var(--fw-sm);
@@ -116,61 +110,25 @@
         font-size: var(--fs-lg-3);
       }
 
-      /* utilities */
-      .text--muted {
-        color: var(--fg-secondary);
+      .content1 {
+        display: none;
+        grid-template-rows: max-content 1fr;
+        gap: var(--sp-lg-5);
       }
 
-      .text--light {
-        color: var(--fg-secondary);
-        font-weight: var(--fs-sm);
+      .content2 {
+        display: none;
+        grid-template-rows: max-content 1fr;
+        gap: var(--sp-lg-5);
       }
 
-      nav {
-        min-width: 0px;
+      .content3 {
+        display: none;
+        grid-template-rows: max-content 1fr;
+        gap: var(--sp-lg-5);
       }
 
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        width: 100px;
-        background-color: var(--bg-primary);
-      }
-
-      li {
-        float: left;
-        border-right: none;
-      }
-
-      li:last-child {
-        border-right: none;
-        clear: left;
-      }
-
-      li a {
-        display: block;
-        color: var(--fg-primary);
-        text-align: center;
-        padding: 8px;
-        text-decoration: none;
-      }
-
-      li a:hover {
-        background-color: var(--fg-secondary);
-        color: var(--fg-primary);
-      }
-
-      li a:hover:not(.active) {
-        background-color: var(--nav-inactive);
-      }
-
-      .active {
-        background-color: var(--nav-active);
-      }
-
-      .grid {
+      .dashboard {
         display: grid;
         gap: var(--sp-lg-5);
         grid-template-rows: repeat(6, 1fr);
@@ -179,8 +137,8 @@
         grid-template-areas:
           "description description status status"
           "description description status status"
-          "risks risks finance finance"
-          "risks risks finance finance"
+          "risksIssues risksIssues finance finance"
+          "risksIssues risksIssues finance finance"
           "schedule schedule schedule schedule"
           "schedule schedule schedule schedule";
       }
@@ -193,8 +151,8 @@
         grid-area: status;
       }
 
-      .risks {
-        grid-area: risks;
+      .risksIssues {
+        grid-area: risksIssues;
       }
 
       .finance {
@@ -205,32 +163,180 @@
         grid-area: schedule;
       }
 
-      .my-team {
-        grid-area: my-team;
+      .risksPage {
+        display: grid;
+        gap: var(--sp-lg-5);
+
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+
+        grid-template-areas:
+          "issues"
+          "risks"
+          "opportunity";
       }
 
-      .messages {
-        grid-area: messages;
+      .issues {
+        grid-area: issues;
       }
 
-      .project-1 {
-        grid-area: project-1;
+      .opportunity {
+        grid-area: opportunity;
       }
 
-      .project-2 {
-        grid-area: project-2;
+      .risks {
+        grid-area: risks;
       }
 
-      .project-3 {
-        grid-area: project-3;
+      .schedulePage {
+        display: grid;
+        gap: var(--sp-lg-5);
+
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+
+        grid-template-areas: "detail-schedule";
       }
 
-      .my-work {
-        grid-area: my-work;
+      .detail-schedule {
+        grid-area: detail-schedule;
       }
 
-      .my-day {
-        grid-area: my-day;
+      input[type="radio"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+
+      label {
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 30px;
+        background-color: var(--fg-secondary);
+        border-style: solid solid none solid;
+        border-width: 2px;
+        border-color: transparent;
+        border-radius: var(--nav-radius);
+        color: var(--nav-font);
+      }
+
+      #tab1:checked + label {
+        background-color: var(--nav-active);
+      }
+
+      #tab2:checked + label {
+        background-color: var(--nav-active);
+      }
+
+      #tab3:checked + label {
+        background-color: var(--nav-active);
+      }
+
+      #tab1:checked ~ .content1 {
+        display: block;
+      }
+
+      #tab2:checked ~ .content2 {
+        display: block;
+      }
+
+      #tab3:checked ~ .content3 {
+        display: block;
+      }
+
+      div.riskMatrix {
+        width: 70%;
+        float: right;
+
+        table {
+          height: 100%;
+          width: 100%;
+
+          tr {
+            &:last-of-type {
+              td {
+                text-align: center;
+                padding-top: 10px;
+
+                font-size: 1.2em;
+                font-family: "Consolas";
+                font-weight: bold;
+              }
+            }
+
+            td {
+              height: 40px;
+              width: 40px;
+
+              border: 1px solid rgba(0, 0, 0, 0.2);
+
+              &:first-of-type {
+                width: 30px;
+                height: 30px;
+
+                margin-top: 10px;
+
+                font-size: 1.2em;
+                font-family: "Consolas";
+                font-weight: bold;
+
+                text-align: right;
+                padding-right: 20px;
+              }
+
+              &.green {
+                background-color: #44c14a;
+              }
+
+              &.yellow {
+                background-color: #c2c653;
+              }
+
+              &.red {
+                background-color: #bb413e;
+              }
+            }
+          }
+        }
+      }
+
+      .status.red:before {
+        background-color: #c9404d;
+        border-color: #c42c3b;
+        box-shadow: 0px 0px 4px 1px;
+        content: " ";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #000;
+        border-radius: 7px;
+      }
+
+      .status.yellow:before {
+        background-color: #ffc182;
+        border-color: #ffb161;
+        box-shadow: 0px 0px 4px 1px;
+        content: " ";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #000;
+        border-radius: 7px;
+      }
+
+      .status.green:before {
+        background-color: #94e185;
+        border-color: #78d965;
+        box-shadow: 0px 0px 4px 1px;
+        content: " ";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #000;
+        border-radius: 7px;
       }
 
       section {
@@ -248,27 +354,12 @@
       section > header {
         display: grid;
         grid-template-columns: max-content 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         gap: var(--sp-sm-1);
 
-        grid-template-areas:
-          "icon header"
-          "icon sub-header";
+        grid-template-areas: "header";
 
         padding: var(--padding);
-      }
-
-      section > header > .icon {
-        grid-area: icon;
-        display: grid;
-        place-content: center;
-        border-radius: calc((2 / 3) * var(--bd-radius));
-
-        width: var(--icon-size);
-        height: var(--icon-size);
-
-        background: var(--bg-primary);
-        color: var(--hi-primary);
       }
 
       section > header > h2 {
@@ -277,283 +368,153 @@
         font-size: var(--fs-lg-1);
         align-self: end;
       }
-
-      section > header > p {
-        grid-area: sub-header;
-
-        font-weight: var(--fw-sm);
-      }
-
-      section > *:nth-child(2) {
-        margin: 0 var(--padding) var(--padding);
-        place-self: stretch;
-      }
-
-      section.decorated {
-        /* Need to add a background image
-            background-image: ; */
-        background-position: bottom right;
-        background-repeat: no-repeat;
-      }
-
-      dl {
+      .schedulePage {
         display: grid;
-        grid-auto-flow: column dense;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: var(--sp-sm-6) 0;
+        gap: var(--sp-lg-5);
+
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+
+        grid-template-areas: "detail-schedule";
       }
 
-      dl dt {
-        font-weight: var(--fw-sm);
-        font-size: var(--fs-base);
-        color: var(--fg-secondary);
-        line-height: var(--sp-lg-5);
+      .detail-schedule {
+        grid-area: detail-schedule;
       }
 
-      dl dd {
-        font-size: var(--fs-lg-1);
-        line-height: var(--sp-lg-2);
+      .container {
+        width: 1200px;
+        grid-template-columns: 100px 700px;
+        gap: var(--sp-lg-5);
       }
 
-      dl > .size-1 {
-        grid-column: span 1;
-      }
-
-      dl > .size-2 {
-        grid-column: span 2;
-      }
-
-      dl > .size-3 {
-        grid-column: span 3;
-      }
-
-      dd.hi::before {
-        --hi-size: 12px;
-
-        content: "";
-        display: inline-block;
-
-        width: var(--hi-size);
-        height: var(--hi-size);
-        margin-right: var(--sp-sm-4);
-        border-radius: 50%;
-
-        background-color: var(--highlight);
-      }
-
-      .hi-danger {
-        --highlight: var(--hi-danger);
-      }
-
-      .hi-warning {
-        --highlight: var(--hi-warning);
-      }
-
-      .hi-success {
-        --highlight: var(--hi-success);
-      }
-
-      .hi-muted {
-        --highlight: var(--fg-secondary);
-      }
-
-      .avatar {
-        width: var(--avatar-size);
-        height: var(--avatar-size);
-        background-color: var(--bg-primary);
-        border-radius: 50%;
-
-        /* Need to add URL*/
-        background-image: var(--avatar-url);
-        background-position: center;
-        background-size: cover;
-      }
-
-      .project {
+      /*.sideNav {
+        grid-area: sideNav;
         display: grid;
-        justify-items: start;
-        grid-auto-rows: max-content;
-        gap: var(--sp-sm-4);
+        grid-template-columns: max-content 1fr;
       }
 
-      .project__members {
-        --avatar-size: 32px;
-
-        display: grid;
-        grid-auto-flow: column;
-        gap: var(--sp-sm-4);
-      }
-
-      .project__members > * {
-        background-color: var(--bg-primary);
-      }
-
-      .status.red:before {
-        background-color: #c9404d;
-        border-color: #c42c3b;
-        box-shadow: 0px 0px 4px 1px;
-        content: " ";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border: 1px solid #000;
-        border-radius: 7px;
-      }
-      .status.yellow:before {
-        background-color: #ffc182;
-        border-color: #ffb161;
-        box-shadow: 0px 0px 4px 1px;
-        content: " ";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border: 1px solid #000;
-        border-radius: 7px;
-      }
-      .status.green:before {
-        background-color: #94e185;
-        border-color: #78d965;
-        box-shadow: 0px 0px 4px 1px;
-        content: " ";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border: 1px solid #000;
-        border-radius: 7px;
-      }
+      .contentPage {
+        grid-area: contentPage;
+      }*/
     </style>
-    <script>
-      function show(shown, hidden) {
-        document.getElementById(shown).style.display = "block";
-        document.getElementById(hidden).style.display = "none";
-        return false;
-      }
-
-      checkHash();
-
-      function checkHash() {
-        //Check if the hash is empty
-        if (window.location.hash.substring(1) == "") {
-          history.replaceState(undefined, undefined, "#home");
-        }
-      }
-    </script>
   </head>
-
   <body>
     <main>
-      <nav>
-        <ul>
-          <li>
-            <a class="active" href="#" onclick="return show('home','risks')"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a href="#risks" href="#" onclick="return show('risks','home')"
-              >Risks</a
-            >
-          </li>
-          <li>
-            <a href="#schedule" href="#" onclick="return show('risks','home')"
-              >Schedule</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <article id="home">
-        <header>
-          <h1>Project 1</h1>
-        </header>
-        <div class="grid">
-          <section class="description">
-            <header>
-              <h2>Overview</h2>
-            </header>
-            <div>
-              <h4>Project Description</h4>
-              <br />
-              <li>Yay</li>
-              <li>We</li>
-              <li>Succeeded</li>
-              <h4>Key Personnel</h4>
-              <br />
-              <li>Project Manager: John Doe</li>
-              <li>Program Manager: Julie Doe</li>
-              <li>Division Chief: William Smith</li>
-            </div>
-          </section>
-          <section class="status">
-            <header>
-              <h2>Status</h2>
-            </header>
-            <div>
-              <h4>Accomplishments</h4>
-              <br />
-              <li>Yay</li>
-              <li>We</li>
-              <li>Succeeded</li>
-              <h4>90 Day Look Ahead</h4>
-              <br />
-              <li>This is</li>
-              <li>What we're</li>
-              <li>Planning</li>
-            </div>
-          </section>
-          <section class="risks">
-            <header>
-              <h2>Risks Issues</h2>
-            </header>
-            <div>
-              <h4>Issues</h4>
-              <br />
-              <h4>Risks</h4>
-              <br />
-            </div>
-            <!--<table>
-                        <tr>
-                            <th>Top Issues</th>
-                            <th>Top Risks</th>
-                        </tr>
-                        <tr>
-                            <td>Issues #1</td>
-                            <td>Risk #1</td>
-                        </tr>
-                    </table> -->
-          </section>
-          <section class="finance">
-            <header>
-              <h2>Finance</h2>
-            </header>
-            <div>
-              <h4 class="status red">RDT&E</h4>
-              <ul>
+      <div class="container">
+        <!--<div class="sideNav">-->
+        <input type="radio" name="tab" id="tab1" checked />
+        <label for="tab1">Dashboard</label>
+        <input type="radio" name="tab" id="tab2" />
+        <label for="tab2">Risk</label>
+        <input type="radio" name="tab" id="tab3" />
+        <label for="tab3">Schedule</label>
+        <!--</div>-->
+        <!--<div class="contentPage">-->
+        <div class="content1" id="content1">
+          <header>
+            <h1>Project 1</h1>
+          </header>
+          <div class="dashboard">
+            <section class="description">
+              <header>
+                <h2>Overview</h2>
+              </header>
+              <div>
+                <h4>Project Description</h4>
+                <li>Yay</li>
+                <li>We</li>
+                <li>Succeeded</li>
+                <h4>Key Personnel</h4>
+                <li>Project Manager: John Doe</li>
+                <li>Program Manager: Julie Doe</li>
+                <li>Division Chief: William Smith</li>
+              </div>
+            </section>
+            <section class="status">
+              <header>
+                <h2>Status</h2>
+              </header>
+              <div>
+                <h4>Accomplishments</h4>
+                <li>Yay</li>
+                <li>We</li>
+                <li>Succeeded</li>
+                <h4>90 Day Look Ahead</h4>
+                <li>This is</li>
+                <li>What we're</li>
+                <li>Planning</li>
+              </div>
+            </section>
+            <section class="risksIssues">
+              <header>
+                <h2>Risks & Issues</h2>
+              </header>
+              <div>
+                <h4>Issues</h4>
+                <h4>Risks</h4>
+              </div>
+            </section>
+            <section class="finance">
+              <header>
+                <h2>Finance</h2>
+              </header>
+              <div>
+                <h4>RDT&E</h4>
+                <li class="status red">FY12</li>
+                <li class="status yellow">FY11</li>
                 <li class="status green">FY10</li>
-                <li class="status red">FY11</li>
-              </ul>
-              <br />
-              <h4 class="status yellow">Procurement</h4>
-              <ul>
+                <h4>Procurement</h4>
+                <li class="status red">FY12</li>
+                <li class="status yellow">FY11</li>
                 <li class="status green">FY10</li>
-                <li class="status red">FY11</li>
-              </ul>
-              <br />
-              <h4 class="status green">Sustainment</h4>
-              <ul>
+                <h4>Sustainment</h4>
+                <li class="status red">FY12</li>
+                <li class="status yellow">FY11</li>
                 <li class="status green">FY10</li>
-                <li class="status red">FY11</li>
-              </ul>
-              <br />
-            </div>
-          </section>
-          <section class="schedule">
-            <header>
-              <h2>Schedule</h2>
-            </header>
-          </section>
+              </div>
+            </section>
+            <section class="schedule">
+              <header>
+                <h2>Schedule</h2>
+              </header>
+            </section>
+          </div>
         </div>
-      </article>
+        <div class="content2" id="content2">
+          <header>
+            <h1>Risks & Issues</h1>
+          </header>
+          <div class="risksPage">
+            <section class="issues">
+              <header>
+                <h2>Issues</h2>
+              </header>
+            </section>
+            <section class="risks">
+              <header>
+                <h2>Risks</h2>
+              </header>
+            </section>
+            <section class="opportunity">
+              <header>
+                <h2>Opportunities</h2>
+              </header>
+            </section>
+          </div>
+        </div>
+        <div class="content3" id="content3">
+          <header>
+            <h1>Schedule</h1>
+          </header>
+          <div class="schedulePage">
+            <section class="detail-schedule">
+              Placeholder for Schedule
+            </section>
+          </div>
+          <!--</div>-->
+        </div>
+      </div>
     </main>
   </body>
 </html>
