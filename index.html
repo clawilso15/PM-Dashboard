@@ -1,253 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Static Template</title>
 
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-      html {
-        font-size: 14px;
-        line-height: 1.2;
-        font-family: "Lato", sans-serif;
-        font-weight: var(--fw-base);
-      }
+        html {
+            font-size: 14px;
+            line-height: 1.2;
+            font-family: "Lato", sans-serif;
+            font-weight: var(--fw-base);
+        }
 
-      :root {
-        --bg-root: rgb(66, 68, 87);
+        :root {
+            --bg-root: rgb(66, 68, 87);
 
-        --bg-primary: rgb(32, 33, 42);
-        --bg-secondary: rgb(55, 57, 63);
-        --bg-tertiary: rgb(40, 41, 50);
+            --bg-primary: rgb(32, 33, 42);
+            --bg-secondary: rgb(55, 57, 63);
+            --bg-tertiary: rgb(40, 41, 50);
 
-        --nav-active: rgb(17, 201, 0);
-        --nav-font: rgb(55, 57, 63);
+            --nav-active: rgb(17, 201, 0);
+            --nav-font: rgb(55, 57, 63);
 
-        --hi-success: rgb(17, 201, 0);
-        --hi-warning: rgb(255, 147, 5);
-        --hi-danger: rgb(255, 0, 126);
-        --hi-primary: rgb(138, 149, 255);
-        --hi-secondary: rgb(90, 104, 242);
+            --hi-success: rgb(17, 201, 0);
+            --hi-warning: rgb(255, 147, 5);
+            --hi-danger: rgb(255, 0, 126);
+            --hi-primary: rgb(138, 149, 255);
+            --hi-secondary: rgb(90, 104, 242);
 
-        --fg-primary: rgb(233, 233, 233);
-        --fg-secondary: rgb(131, 133, 137);
+            --fg-primary: rgb(233, 233, 233);
+            --fg-secondary: rgb(131, 133, 137);
 
-        --fw-sm: 500;
-        --fw-lg: 700;
+            --fw-sm: 500;
+            --fw-lg: 700;
 
-        --sp-base: 16px;
+            --sp-base: 16px;
 
-        --sp-sm-1: calc(7 / 8 * var(--sp-base));
-        --sp-sm-2: calc(6 / 8 * var(--sp-base));
-        --sp-sm-3: calc(5 / 8 * var(--sp-base));
-        --sp-sm-4: calc(4 / 8 * var(--sp-base));
-        --sp-sm-5: calc(3 / 8 * var(--sp-base));
-        --sp-sm-6: calc(2 / 8 * var(--sp-base));
-        --sp-sm-7: calc(1 / 8 * var(--sp-base));
+            --sp-sm-1: calc(7 / 8 * var(--sp-base));
+            --sp-sm-2: calc(6 / 8 * var(--sp-base));
+            --sp-sm-3: calc(5 / 8 * var(--sp-base));
+            --sp-sm-4: calc(4 / 8 * var(--sp-base));
+            --sp-sm-5: calc(3 / 8 * var(--sp-base));
+            --sp-sm-6: calc(2 / 8 * var(--sp-base));
+            --sp-sm-7: calc(1 / 8 * var(--sp-base));
 
-        --sp-lg-7: calc((1 + 7 / 8) * var(--sp-base));
-        --sp-lg-6: calc((1 + 6 / 8) * var(--sp-base));
-        --sp-lg-5: calc((1 + 5 / 8) * var(--sp-base));
-        --sp-lg-4: calc((1 + 4 / 8) * var(--sp-base));
-        --sp-lg-3: calc((1 + 3 / 8) * var(--sp-base));
-        --sp-lg-2: calc((1 + 2 / 8) * var(--sp-base));
-        --sp-lg-1: calc((1 + 1 / 8) * var(--sp-base));
+            --sp-lg-7: calc((1 + 7 / 8) * var(--sp-base));
+            --sp-lg-6: calc((1 + 6 / 8) * var(--sp-base));
+            --sp-lg-5: calc((1 + 5 / 8) * var(--sp-base));
+            --sp-lg-4: calc((1 + 4 / 8) * var(--sp-base));
+            --sp-lg-3: calc((1 + 3 / 8) * var(--sp-base));
+            --sp-lg-2: calc((1 + 2 / 8) * var(--sp-base));
+            --sp-lg-1: calc((1 + 1 / 8) * var(--sp-base));
 
-        --fs-sm-1: 0.8rem;
-        --fs-base: 1rem;
-        --fs-lg-1: 1.25rem;
-        --fs-lg-2: 1.563rem;
-        --fs-lg-3: 1.953rem;
-        --fs-lg-4: 2.441rem;
+            --fs-sm-1: 0.8rem;
+            --fs-base: 1rem;
+            --fs-lg-1: 1.25rem;
+            --fs-lg-2: 1.563rem;
+            --fs-lg-3: 1.953rem;
+            --fs-lg-4: 2.441rem;
 
-        --bd-radius: 24px;
-        --nav-radius: 12px;
-        --bd: 1px solid var(--bg-secondary);
-      }
+            --bd-radius: 24px;
+            --nav-radius: 12px;
+            --bd: 1px solid var(--bg-secondary);
+        }
 
-      body {
-        background: var(--bg-root);
+        body {
+            background: var(--bg-root);
 
-        display: grid;
-        place-content: center;
+            display: grid;
+            place-content: center;
 
-        min-height: 100vh;
-        min-width: 100vw;
+            min-height: 100vh;
+            min-width: 100vw;
 
-        overflow-x: hidden;
-        padding: var(--sp-base);
+            overflow-x: hidden;
+            padding: var(--sp-base);
 
-        color: var(--fg-primary);
-      }
+            color: var(--fg-primary);
+        }
 
-      main {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: 1fr;
-        gap: var(--sp-lg-4);
+        main {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            grid-template-rows: 1fr;
+            gap: var(--sp-lg-4);
 
-        width: 1280px;
-        max-width: 1280px;
-        aspect-ratio: 1280/758;
-        border-radius: calc(5 / 3 * var(--bd-radius));
-        padding: calc(4 * var(--sp-base));
+            width: 1280px;
+            max-width: 1280px;
+            aspect-ratio: 1280/758;
+            border-radius: calc(5 / 3 * var(--bd-radius));
+            padding: calc(4 * var(--sp-base));
 
-        background-color: var(--bg-primary);
-        box-shadow: 67px 62px 120px 0px rgb(33, 37, 52, 0.75);
-      }
+            background-color: var(--bg-primary);
+            box-shadow: 67px 62px 120px 0px rgb(33, 37, 52, 0.75);
+        }
 
-      h1 {
-        color: var(--hi-primary);
-        font-weight: var(--fw-sm);
-        margin: 0;
-        font-size: var(--fs-lg-3);
-      }
+        h1 {
+            color: var(--hi-primary);
+            font-weight: var(--fw-sm);
+            margin: 0;
+            font-size: var(--fs-lg-3);
+        }
 
-      .content1 {
-        display: none;
-        grid-template-rows: max-content 1fr;
-        gap: var(--sp-lg-5);
-      }
+        .content1 {
+            display: none;
+            grid-template-rows: max-content 1fr;
+            gap: var(--sp-lg-5);
+        }
 
-      .content2 {
-        display: none;
-        grid-template-rows: max-content 1fr;
-        gap: var(--sp-lg-5);
-      }
+        .content2 {
+            display: none;
+            grid-template-rows: max-content 1fr;
+            gap: var(--sp-lg-5);
+        }
 
-      .content3 {
-        display: none;
-        grid-template-rows: max-content 1fr;
-        gap: var(--sp-lg-5);
-      }
+        .content3 {
+            display: none;
+            grid-template-rows: max-content 1fr;
+            gap: var(--sp-lg-5);
+        }
 
-      .dashboard {
-        display: grid;
-        gap: var(--sp-lg-5);
-        grid-template-rows: repeat(6, 1fr);
-        grid-template-columns: repeat(4, 1fr);
+        .dashboard {
+            display: grid;
+            gap: var(--sp-lg-5);
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-columns: repeat(4, 1fr);
 
-        grid-template-areas:
-          "description description status status"
-          "description description status status"
-          "risksIssues risksIssues finance finance"
-          "risksIssues risksIssues finance finance"
-          "schedule schedule schedule schedule"
-          "schedule schedule schedule schedule";
-      }
+            grid-template-areas:
+                "description description status status"
+                "description description status status"
+                "risksIssues risksIssues finance finance"
+                "risksIssues risksIssues finance finance"
+                "schedule schedule schedule schedule"
+                "schedule schedule schedule schedule";
+        }
 
-      .description {
-        grid-area: description;
-      }
+        .description {
+            grid-area: description;
+        }
 
-      .status {
-        grid-area: status;
-      }
+        .status {
+            grid-area: status;
+        }
 
-      .risksIssues {
-        grid-area: risksIssues;
-      }
+        .risksIssues {
+            grid-area: risksIssues;
+        }
 
-      .finance {
-        grid-area: finance;
-      }
+        .finance {
+            grid-area: finance;
+        }
 
-      .schedule {
-        grid-area: schedule;
-      }
+        .schedule {
+            grid-area: schedule;
+        }
 
-      .risksPage {
-        display: grid;
-        gap: var(--sp-lg-5);
+        .risksPage {
+            display: grid;
+            gap: var(--sp-lg-5);
 
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(1, 1fr);
 
-        grid-template-areas:
-          "issues"
-          "risks"
-          "opportunity";
-      }
+            grid-template-areas:
+                "issues"
+                "risks"
+                "opportunity";
+        }
 
-      .issues {
-        grid-area: issues;
-      }
+        .issues {
+            grid-area: issues;
+        }
 
-      .opportunity {
-        grid-area: opportunity;
-      }
+        .opportunity {
+            grid-area: opportunity;
+        }
 
-      .risks {
-        grid-area: risks;
-      }
+        .risks {
+            grid-area: risks;
+        }
 
-      .schedulePage {
-        display: grid;
-        gap: var(--sp-lg-5);
+        .schedulePage {
+            display: grid;
+            gap: var(--sp-lg-5);
 
-        grid-template-rows: repeat(1, 1fr);
-        grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            grid-template-columns: repeat(1, 1fr);
 
-        grid-template-areas: "detail-schedule";
-      }
+            grid-template-areas: "detail-schedule";
+        }
 
-      .detail-schedule {
-        grid-area: detail-schedule;
-      }
+        .detail-schedule {
+            grid-area: detail-schedule;
+        }
 
-      input[type="radio"] {
-        width: 0;
-        height: 0;
-        opacity: 0;
-      }
+        input[type="radio"] {
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
 
-      label {
-        cursor: pointer;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        height: 30px;
-        background-color: var(--fg-secondary);
-        border-style: solid solid none solid;
-        border-width: 2px;
-        border-color: transparent;
-        border-radius: var(--nav-radius);
-        color: var(--nav-font);
-      }
+        label {
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 30px;
+            background-color: var(--fg-secondary);
+            border-style: solid solid none solid;
+            border-width: 2px;
+            border-color: transparent;
+            border-radius: var(--nav-radius);
+            color: var(--nav-font);
+        }
 
-      #tab1:checked + label {
-        background-color: var(--nav-active);
-      }
+        #tab1:checked+label {
+            background-color: var(--nav-active);
+        }
 
-      #tab2:checked + label {
-        background-color: var(--nav-active);
-      }
+        #tab2:checked+label {
+            background-color: var(--nav-active);
+        }
 
-      #tab3:checked + label {
-        background-color: var(--nav-active);
-      }
+        #tab3:checked+label {
+            background-color: var(--nav-active);
+        }
 
-      #tab1:checked ~ .content1 {
-        display: block;
-      }
+        #tab1:checked~.content1 {
+            display: block;
+        }
 
-      #tab2:checked ~ .content2 {
-        display: block;
-      }
+        #tab2:checked~.content2 {
+            display: block;
+        }
 
-      #tab3:checked ~ .content3 {
-        display: block;
-      }
+        #tab3:checked~.content3 {
+            display: block;
+        }
 
-      div.riskMatrix {
+        /*div.riskMatrix {
         width: 70%;
         float: right;
 
@@ -301,94 +302,217 @@
             }
           }
         }
-      }
+      }*/
 
-      .status.red:before {
-        background-color: #c9404d;
-        border-color: #c42c3b;
-        box-shadow: 0px 0px 4px 1px;
-        content: " ";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border: 1px solid #000;
-        border-radius: 7px;
-      }
+        .status.red:before {
+            background-color: #c9404d;
+            border-color: #c42c3b;
+            box-shadow: 0px 0px 4px 1px;
+            content: " ";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border: 1px solid #000;
+            border-radius: 7px;
+        }
 
-      .status.yellow:before {
-        background-color: #ffc182;
-        border-color: #ffb161;
-        box-shadow: 0px 0px 4px 1px;
-        content: " ";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border: 1px solid #000;
-        border-radius: 7px;
-      }
+        .status.yellow:before {
+            background-color: #ffc182;
+            border-color: #ffb161;
+            box-shadow: 0px 0px 4px 1px;
+            content: " ";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border: 1px solid #000;
+            border-radius: 7px;
+        }
 
-      .status.green:before {
-        background-color: #94e185;
-        border-color: #78d965;
-        box-shadow: 0px 0px 4px 1px;
-        content: " ";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border: 1px solid #000;
-        border-radius: 7px;
-      }
+        .status.green:before {
+            background-color: #94e185;
+            border-color: #78d965;
+            box-shadow: 0px 0px 4px 1px;
+            content: " ";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border: 1px solid #000;
+            border-radius: 7px;
+        }
 
-      section {
-        --icon-size: 58px;
-        --padding: var(--sp-lg-1);
+        section {
+            --icon-size: 58px;
+            --padding: var(--sp-sm-1);
 
-        background-color: var(--bg-tertiary);
-        border: var(--bd);
-        border-radius: var(--bd-radius);
+            background-color: var(--bg-tertiary);
+            border: var(--bd);
+            border-radius: var(--bd-radius);
 
-        display: grid;
-        grid-template-rows: max-content 1fr;
-      }
+            display: grid;
+            grid-template-rows: max-content 1fr;
 
-      section > header {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: repeat(1, 1fr);
-        gap: var(--sp-sm-1);
+            padding: var(--padding);
+        }
 
-        grid-template-areas: "header";
+        section>header {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            grid-template-rows: repeat(1, 1fr);
+            gap: var(--sp-sm-1);
 
-        padding: var(--padding);
-      }
+            grid-template-areas: "header";
 
-      section > header > h2 {
-        grid-area: header;
+            padding: var(--padding);
+        }
 
-        font-size: var(--fs-lg-1);
-        align-self: end;
-      }
-      .schedulePage {
-        display: grid;
-        gap: var(--sp-lg-5);
+        section>header>h2 {
+            grid-area: header;
 
-        grid-template-rows: repeat(1, 1fr);
-        grid-template-columns: repeat(1, 1fr);
+            font-size: var(--fs-lg-1);
+            align-self: end;
+        }
 
-        grid-template-areas: "detail-schedule";
-      }
+        .schedulePage {
+            display: grid;
+            gap: var(--sp-lg-5);
 
-      .detail-schedule {
-        grid-area: detail-schedule;
-      }
+            grid-template-rows: repeat(1, 1fr);
+            grid-template-columns: repeat(1, 1fr);
 
-      .container {
-        width: 1200px;
-        grid-template-columns: 100px 700px;
-        gap: var(--sp-lg-5);
-      }
+            grid-template-areas: "detail-schedule";
+        }
 
-      /*.sideNav {
+        .detail-schedule {
+            grid-area: detail-schedule;
+            margin: 0;
+            padding: var(--sp-sm-1);
+        }
+
+        .detail-gantt-chart {
+            display: grid;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            background-color: #DCDCDC;
+        }
+
+        .chart-period {
+            color: #fff;
+            background-color: #708090 !important;
+            border-bottom: 2px solid #000;
+            grid-template-columns: 50px repeat(12, 1fr);
+
+        }
+
+        .chart-period>span {
+            text-align: center;
+            font-size: 13px;
+            align-self: center;
+            font-weight: bold;
+            padding: 15px 0;
+        }
+
+        .chart-lines {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            grid-template-columns: 50px repeat(12, 1fr);
+        }
+
+        .chart-lines>span {
+            display: block;
+            border-right: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .chart-row-item {
+            background-color: #808080;
+            border: 1px solid #000;
+            border-top: 0;
+            border-left: 0;
+            padding: 20px 0;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .chart-row-bars {
+            list-style: none;
+            display: grid;
+            padding: 15px 0;
+            margin: 0;
+            grid-template-columns: repeat(12, 1fr);
+            grid-gap: 10px 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .gantt-bars {
+            font-weight: 450;
+            text-align: left;
+            font-size: 15px;
+            min-height: 15px;
+            background-color: #708090;
+            padding: 5px 15px;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        
+        ul .chart-li-one {
+            grid-column: 1/2;
+            background-color: #588BAE;
+        }
+
+        ul .chart-li-two-a {
+            grid-column: 2/2;
+            background-color: #0080FF;
+        }
+
+        ul .chart-li-two-b {
+            grid-column: 2/4;
+            background-color: #4682B4;
+        }
+
+        ul .chart-li-three {
+            grid-column: 3/5;
+            background-color: #57A0D3;
+        }
+
+        ul .chart-li-four {
+            grid-column: 3/9;
+            background-color: #0E4D92;
+        }
+
+        ul .chart-li-five {
+            grid-column: 7/10;
+            background-color: #4F97A3;
+        }
+
+        ul .chart-li-six {
+            grid-column: 10/12;
+            background-color: #73C2FB;
+        }
+
+        ul .chart-li-seven {
+            grid-column: 12/12;
+            background-color: #0080FF;
+        }
+
+        .container {
+            width: 1200px;
+            grid-template-columns: 100px 700px;
+            gap: var(--sp-lg-5);
+        }
+
+        /*.sideNav {
         grid-area: sideNav;
         display: grid;
         grid-template-columns: max-content 1fr;
@@ -398,123 +522,191 @@
         grid-area: contentPage;
       }*/
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <main>
-      <div class="container">
-        <!--<div class="sideNav">-->
-        <input type="radio" name="tab" id="tab1" checked />
-        <label for="tab1">Dashboard</label>
-        <input type="radio" name="tab" id="tab2" />
-        <label for="tab2">Risk</label>
-        <input type="radio" name="tab" id="tab3" />
-        <label for="tab3">Schedule</label>
-        <!--</div>-->
-        <!--<div class="contentPage">-->
-        <div class="content1" id="content1">
-          <header>
-            <h1>Project 1</h1>
-          </header>
-          <div class="dashboard">
-            <section class="description">
-              <header>
-                <h2>Overview</h2>
-              </header>
-              <div>
-                <h4>Project Description</h4>
-                <li>Yay</li>
-                <li>We</li>
-                <li>Succeeded</li>
-                <h4>Key Personnel</h4>
-                <li>Project Manager: John Doe</li>
-                <li>Program Manager: Julie Doe</li>
-                <li>Division Chief: William Smith</li>
-              </div>
-            </section>
-            <section class="status">
-              <header>
-                <h2>Status</h2>
-              </header>
-              <div>
-                <h4>Accomplishments</h4>
-                <li>Yay</li>
-                <li>We</li>
-                <li>Succeeded</li>
-                <h4>90 Day Look Ahead</h4>
-                <li>This is</li>
-                <li>What we're</li>
-                <li>Planning</li>
-              </div>
-            </section>
-            <section class="risksIssues">
-              <header>
-                <h2>Risks & Issues</h2>
-              </header>
-              <div>
-                <h4>Issues</h4>
-                <h4>Risks</h4>
-              </div>
-            </section>
-            <section class="finance">
-              <header>
-                <h2>Finance</h2>
-              </header>
-              <div>
-                <h4>RDT&E</h4>
-                <li class="status red">FY12</li>
-                <li class="status yellow">FY11</li>
-                <li class="status green">FY10</li>
-                <h4>Procurement</h4>
-                <li class="status red">FY12</li>
-                <li class="status yellow">FY11</li>
-                <li class="status green">FY10</li>
-                <h4>Sustainment</h4>
-                <li class="status red">FY12</li>
-                <li class="status yellow">FY11</li>
-                <li class="status green">FY10</li>
-              </div>
-            </section>
-            <section class="schedule">
-              <header>
-                <h2>Schedule</h2>
-              </header>
-            </section>
-          </div>
+        <div class="container">
+            <!--<div class="sideNav">-->
+            <input type="radio" name="tab" id="tab1" checked />
+            <label for="tab1">Dashboard</label>
+            <input type="radio" name="tab" id="tab2" />
+            <label for="tab2">Risk</label>
+            <input type="radio" name="tab" id="tab3" />
+            <label for="tab3">Schedule</label>
+            <!--</div>-->
+            <!--<div class="contentPage">-->
+            <div class="content1" id="content1">
+                <header>
+                    <h1>Project 1</h1>
+                </header>
+                <div class="dashboard">
+                    <section class="description">
+                        <header>
+                            <h2>Overview</h2>
+                        </header>
+                        <div>
+                            <h4>Project Description</h4>
+                            <li>Yay</li>
+                            <li>We</li>
+                            <li>Succeeded</li>
+                            <h4>Key Personnel</h4>
+                            <li>Project Manager: John Doe</li>
+                            <li>Program Manager: Julie Doe</li>
+                            <li>Division Chief: William Smith</li>
+                        </div>
+                    </section>
+                    <section class="status">
+                        <header>
+                            <h2>Status</h2>
+                        </header>
+                        <div>
+                            <h4>Accomplishments</h4>
+                            <li>Yay</li>
+                            <li>We</li>
+                            <li>Succeeded</li>
+                            <h4>90 Day Look Ahead</h4>
+                            <li>This is</li>
+                            <li>What we're</li>
+                            <li>Planning</li>
+                        </div>
+                    </section>
+                    <section class="risksIssues">
+                        <header>
+                            <h2>Risks & Issues</h2>
+                        </header>
+                        <div>
+                            <h4>Issues</h4>
+                            <h4>Risks</h4>
+                        </div>
+                    </section>
+                    <section class="finance">
+                        <header>
+                            <h2>Finance</h2>
+                        </header>
+                        <div>
+                            <h4>RDT&E</h4>
+                            <div class="status red">FY12</div>
+                            <div class="status yellow">FY11</div>
+                            <div class="status green">FY10</div>
+                            <h4>Procurement</h4>
+                            <div class="status red">FY12</div>
+                            <div class="status yellow">FY11</div>
+                            <div class="status green">FY10</div>
+                            <h4>Sustainment</h4>
+                            <div class="status red">FY12</div>
+                            <div class="status yellow">FY11</div>
+                            <div class="status green">FY10</div>
+                        </div>
+                    </section>
+                    <section class="schedule">
+                        <header>
+                            <h2>Schedule</h2>
+                        </header>
+                    </section>
+                </div>
+            </div>
+            <div class="content2" id="content2">
+                <header>
+                    <h1>Risks & Issues</h1>
+                </header>
+                <div class="risksPage">
+                    <section class="issues">
+                        <header>
+                            <h2>Issues</h2>
+                        </header>
+                    </section>
+                    <section class="risks">
+                        <header>
+                            <h2>Risks</h2>
+                        </header>
+                    </section>
+                    <section class="opportunity">
+                        <header>
+                            <h2>Opportunities</h2>
+                        </header>
+                    </section>
+                </div>
+            </div>
+            <div class="content3" id="content3">
+                <header>
+                    <h1>Schedule</h1>
+                </header>
+                <div class="schedulePage">
+                    <section class="detail-schedule">
+                        <div class="detail-gantt-chart">
+                            <div class="chart-row chart-period">
+                                <div class="chart-row-item">
+                                </div>
+                                <span>January</span>
+                                <span>February</span>
+                                <span>March</span>
+                                <span>April</span>
+                                <span>May</span>
+                                <span>June</span>
+                                <span>July</span>
+                                <span>August</span>
+                                <span>September</span>
+                                <span>October</span>
+                                <span>November</span>
+                                <span>December</span>
+                            </div>
+                            <div class="chart-row chart-lines">
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">1</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-one">Planning</div>
+                                </ul>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">2</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-two-a">Meeting</div>
+                                    <div class="gantt-bars chart-li-two-b">Analysis</div>
+                                </ul>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">3</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-three">Design</div>
+                                </ul>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">4</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-four">Development</div>
+                                </ul>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">5</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-five">Testing</div>
+                                </ul>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">6</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-six">Maintenance</div>
+                                </ul>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">7</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-seven">Meeting</div>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!--</div>-->
+            </div>
         </div>
-        <div class="content2" id="content2">
-          <header>
-            <h1>Risks & Issues</h1>
-          </header>
-          <div class="risksPage">
-            <section class="issues">
-              <header>
-                <h2>Issues</h2>
-              </header>
-            </section>
-            <section class="risks">
-              <header>
-                <h2>Risks</h2>
-              </header>
-            </section>
-            <section class="opportunity">
-              <header>
-                <h2>Opportunities</h2>
-              </header>
-            </section>
-          </div>
-        </div>
-        <div class="content3" id="content3">
-          <header>
-            <h1>Schedule</h1>
-          </header>
-          <div class="schedulePage">
-            <section class="detail-schedule">
-              Placeholder for Schedule
-            </section>
-          </div>
-          <!--</div>-->
-        </div>
-      </div>
     </main>
-  </body>
+</body>
+
 </html>
