@@ -512,6 +512,11 @@
             gap: var(--sp-lg-5);
         }
 
+
+        table, th, td {
+            border: 1px solid var(--fg-secondary);
+        }
+
         /*.sideNav {
         grid-area: sideNav;
         display: grid;
@@ -585,7 +590,56 @@
                             <h2>Finance</h2>
                         </header>
                         <div>
-                            <h4>RDT&E</h4>
+                            <table style="width: 100%;">
+                                <colgroup>
+                                        <col span="1">
+                                        <col span="6" style="text-align:center">
+                                </colgroup>
+                                <tr>
+                                    <th rowspan="2">Appropriation</th>
+                                    <th colspan="2">FY10</th>
+                                    <th colspan="2">FY11</th>
+                                    <th colspan="2">FY12</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center">Obs</td>
+                                    <td style="text-align:center">Exp</td>
+                                    <td style="text-align:center">Obs</td>
+                                    <td style="text-align:center">Exp</td>
+                                    <td style="text-align:center">Obs</td>
+                                    <td style="text-align:center">Exp</td>
+                                </tr>
+                                <tr>
+                                    <td>RDT&E</td>
+                                    <td class="status green" style="text-align:center"></td>
+                                    <td class="status yellow" style="text-align:center"></td>
+                                    <td class="status red" style="text-align:center"></td>
+                                    <td class="status green" style="text-align:center"></td>
+                                    <td class="status yellow" style="text-align:center"></td>
+                                    <td class="status red" style="text-align:center"></td>
+                                </tr>
+                                <tr>
+                                    <td>Procurement</td>
+                                    <td class="status green" style="text-align:center"></td>
+                                    <td></td>
+                                    <td class="status yellow" style="text-align:center"></td>
+                                    <td></td>
+                                    <td class="status red" style="text-align:center"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Sustainment</td>
+                                    <td class="status green" style="text-align:center"></td>
+                                    <td></td>
+                                    <td class="status yellow" style="text-align:center"></td>
+                                    <td></td>
+                                    <td class="status red" style="text-align:center"></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+
+                            <!--<h4>RDT&E</h4>
                             <div class="status red">FY12</div>
                             <div class="status yellow">FY11</div>
                             <div class="status green">FY10</div>
@@ -596,13 +650,42 @@
                             <h4>Sustainment</h4>
                             <div class="status red">FY12</div>
                             <div class="status yellow">FY11</div>
-                            <div class="status green">FY10</div>
+                            <div class="status green">FY10</div> -->
                         </div>
                     </section>
                     <section class="schedule">
                         <header>
                             <h2>Schedule</h2>
                         </header>
+                        <div class="detail-gantt-chart">
+                            <div class="chart-row chart-period">
+                                <div class="chart-row-item">
+                                </div>
+                                <span>January</span>
+                                <span>February</span>
+                                <span>March</span>
+                                <span>April</span>
+                                <span>May</span>
+                                <span>June</span>
+                                <span>July</span>
+                                <span>August</span>
+                                <span>September</span>
+                                <span>October</span>
+                                <span>November</span>
+                                <span>December</span>
+                            </div>
+                            <div class="chart-row chart-lines">
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="chart-row">
+                                <div class="chart-row-item">1</div>
+                                <ul class="chart-row-bars">
+                                    <div class="gantt-bars chart-li-one">Planning</div>
+                                </ul>
+                            </div>
                     </section>
                 </div>
             </div>
